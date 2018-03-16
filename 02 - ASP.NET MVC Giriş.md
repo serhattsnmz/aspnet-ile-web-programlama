@@ -12,7 +12,11 @@ ASP.NET MVC;
 
 ## 2) MVC Nasıl Çalışır?
 - Model – View – Controller
-- Resim-02
+
+<p align="center">
+    <img src="assets/02.PNG" style="max-height:250px" />
+</p>
+
 - ASP.NET Web Form ile ASP.NET MVC arasındaki fark
     - Web Form
         - Hızlı proje geliştirme
@@ -31,9 +35,8 @@ ASP.NET MVC;
 - Yeni bir proje nasıl oluşturulur?
 - Oluşturulan yeni projedeki klasör yapısı
 - Controller ve View arasındaki ilişki, klasör yapısı arasındaki ilişki
-- url / { controller } / { action(methot) } düzeni.
+- url / { controller } / { action(metot) } düzeni.
 - Hatalar : 
     - Action yoksa -> 404 hatası / Browser üretir
     - View yoksa -> View bulunamadı hatası / Yazılım üretir
 - Birden fazla sayfaya giden basit bir proje
-- GET ve POST anlamları
