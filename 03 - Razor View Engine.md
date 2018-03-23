@@ -10,6 +10,35 @@
 - Parantez içinde iki değişkenin birleştirilmesi  
 - View içinde for – foreach – if – else kullanımı
 
+#### Razor içinde html yapısı kullanırken oluşan hatalar
+- Razor yapılarından biri kullanıldığında, hemen içine normal yazı yazıldığında bunu C# dili olarak algılar. Eğer yazdığımız bu kısım C# değilse bize hata verecektir.
+
+```cs
+@if (true)
+{
+    Lorem Ipsum // Bu kısım hata verecektir!
+}
+```
+
+- Bu hatayı vermemesini sağlamak için bir kaç yöntem vardır:
+    - Bir html tagı kullanmak
+    - `@:` Razor hata bastırma kodu kullanmak
+    - `<text> </text>` taglarını kullanmak.
+
+```html
+@if (true)
+{
+    <span> Lorem Ipsum </span>
+    
+    @: Lorem Ipsum
+    
+    <text>
+        Lorem Ipsum
+        Lorem Ipsum
+    </text>
+}
+```
+
 ### 2) HTML Helpers
 - HTML Helpers nedir? 
 - Bizim yazdıklarımız ve istemciye ulaşan html verisi arasındaki ilişki
@@ -66,7 +95,7 @@ namespace Project.Library
 ```cs
 public static MvcHtmlString CreateParagraf(this HtmlHelper helper, int borderSize = 3, string borderType = "solid", Func<object, HelperResult> template = null)
 {
-    string html = $"<p style='border-width:{borderSize}px;border-style:{borderType}>{template.Invoke(null)}</p>";
+    string html = $"<p style='border-width:{borderSize}px;border-style:{borderType}'>{template.Invoke(null)}</p>";
     return MvcHtmlString.Create(html);
 }
 ```

@@ -1,12 +1,24 @@
 ## CONTROLER VE VİEW ARASI İLETİŞİM
 
-### 1) ViewData, ViewBag, TempData Kullanımı
+### 1) Controller'dan View'e Veri Gönderme
+- 3 Yöntem vardır:
+    - `ViewData`
+    - `ViewBag`
+    - `TempData`
 - Aralarındaki farklar ve taşıma ömürleri
 
 ### 2) View’dan Controller’a Veri Gönderme
+- View'dan Controller'a veri gönderim 3 şekilde olur:
+    - 1. Route Values : `/Course/Details/2`
+    - 2. Query String : `/Course/Details?ID=2`
+    - 3. Form Data : `ID=2`
 - GET ve POST Yöntemleri
-    - Bu metotların verileri taşıma yolları
-    - Raw Request içindeki yerleri
+    - GET Metodu:
+        - Raw request içinde url içinde taşınır.
+        - Query String yapısındadır.
+    - POST Metodu:
+        - Raw request içinde body kısmında taşınır.
+        - Form Data yapısındadır.
 - GET ve POST ile gönderilen veriler, action üzerinden nasıl alınır.
 
 ```html
@@ -43,3 +55,15 @@ public ActionResult GetInfo(string name, string surname, int age)
 - If( IsPost ) Kullanımı
 - Using ( Html.BeginForm ) Kullanımı
 - Başka bir controller'a veri gönderme yöntemi
+
+#### AntiForgeryToken Kontrolü
+- CSRF zaafiyetlerini engellemek için kullanılan yöntemdir.
+- Bu yöntem kullanıldığında, form client tarafına gönderilirken bir token oluşturulur ve bu token session üzerinde kaydedilir.
+- Kullanıcı formu post ettiğinde, bu token app tarafına gönderilir.
+- Controller çalışmadan önce bu token'ın, session üzerinde kaydedilen token ile eşleştirilmesi yapılır. Eğer token uyumsuz ise geçişe izin verilmez.
+- Böylece başka bir sayfadan veya harici olarak form gönderimi engellenmiş, sadece uygulamının render edip gönderdiği html üzerindeki form gönderimi kabul edilmiş olunur.
+- Bu yöntemi kullanmak için yapılması gereken iki adım vardır:
+    - Öncelikle html tarafındaki form içine aşağıdaki kod satırı eklenir. Bu kod, random olarak token üretimini sağlar.
+        - `@Html.AntiForgeryToken()`
+    - Daha sonra bu formun post edildiği controller üzerinde attribute olarak şu satır eklenir. Bu attribute'ün amacı, token kontrolü yapıp, uyumsuzluk durumda controller'a erişimi engellemektir.
+        - `[ValidateAntiForgeryToken]`
