@@ -12,6 +12,10 @@
     <img src="assets/05.png" style="max-height:350px" />
 </p>
 
+<p align="center">
+    <img src="assets/06.png" style="max-height:350px" />
+</p>
+
 ### 02 - Code First (Önce Kod)
 - Projelerde DB kullanırken bunu iki şekilde yapabiliriz.
     1. DB First : Öncelikle db tasarlanır ve ilgili db üzerinde tablolar oluşturulur. Daha sonrasında bu tablo yapıları program içinde çekilerek (ADO.NET ile) üzerinde CRUD işlemleri yapılır.
