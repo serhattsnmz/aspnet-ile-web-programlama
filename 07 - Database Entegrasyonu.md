@@ -1,4 +1,4 @@
-## ENTITY FRAMEWORK CODEFIRST ENTEGRASYONU
+## DATABASE ENTEGRASYONU
 
 ### 01 – ORM (Object Relational Mapping) Nedir?
 - İlişkisel veritabanı (RDBMS) ile nesneye yönelik programlanın (OOP) arasında bir tür köprü özelliği gören ve ilişkisel veritabanındaki bilgilerimizi yönetmek için, nesne modellerimizi kullandığımız bir tekniktir/metodtur.
@@ -9,11 +9,11 @@
     - Bu yüzden işlemler bittiğinde bu metodun çalıştırılması unutulmamalıdır.
 
 <p align="center">
-    <img src="assets/05.png" style="max-height:350px" />
+    <img src="assets/05.png" style="max-height:300px" />
 </p>
 
 <p align="center">
-    <img src="assets/06.png" style="max-height:350px" />
+    <img src="assets/06.png" style="max-height:300px" />
 </p>
 
 ### 02 - Code First (Önce Kod)
