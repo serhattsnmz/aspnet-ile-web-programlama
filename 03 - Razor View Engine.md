@@ -1,6 +1,6 @@
 ## RAZOR KULLANIMI
 
-### 1) Razor Syntax
+### 1 - Razor Syntax
 - View Engine nedir?
     - View’lerinizi HTML çıktısı olarak render etmek için kullanılan bir mekanizma/teknoloji’dir.
 - RazorView Engine nedir?
@@ -39,13 +39,39 @@
 }
 ```
 
-### 2) HTML Helpers
-- HTML Helpers nedir? 
-- Bizim yazdıklarımız ve istemciye ulaşan html verisi arasındaki ilişki
-- @Html.{ActionLink}
-- Overload Functions ve Kod yapısı içinde override functionsların görülmesi
+### 2 - HTML Helpers
+- Html Helper'lar adından da anlaşılacağı gibi, html kodlarını kısa yoldan, metotlarla oluşturmamız için bize yardımcı olur.
+- Yazdığımız bu metotlar daha sonrasında render edilirken, normal html kodlarına çevilir.
+- **NOT! :** Yazdığımız tüm html helper'ların son çıktısı html'dir.
+    - **Bu nedenle helpers'lar ile yapılan her şey, normal html ile de yapılabilir!**
 
-### 3) Custom HTML Helper Methot Oluşturma
+#### General Helpers
+- Html.ActionLink()
+- Html.Partial()
+
+#### URL Helpers
+- Html.ActionLink()
+- Url.Action()
+- Url helperların otomatik link oluşturması ve bunun önemi
+
+#### HttpUtility Helpers
+- HttpUtility.HtmlEncode() 
+- HttpUtility.HtmlDecode()
+- HttpUtility.UrlEncode() 
+- HttpUtility.UrlDecode()
+- Html.Raw()
+
+#### Form Helpers
+- Form elemanlarını oluşturmak için kullandığımız helper metotları.
+- Her elemanın aynı zamanda bir de model ile kullanıma olanak tanıyan `-for` son ekli başka bir metodu da var.
+- Form helpers'ların yerini Core 2.0'da `tag helpers`'lar almıştır.
+- Form helperslar:
+    - Html.BeginForm()
+    - Html.TextBox() - Html.TextBoxFor()
+    - Html.Label() - Html.LabelFor()
+    - Html.AntiForgeryToken()
+
+### 3 - Custom HTML Helper Methot Oluşturma
 - HtmlHelper class’ı içine oluşturulmuş extension’lar
 
 <p align="center">
@@ -133,14 +159,3 @@ public static MvcHtmlString CreateParagraf(this HtmlHelper helper, int borderSiz
 <!-- Herhangi bir using ifadesi kullanmaya gerek yok. -->
 @Extensions.Input("name", "text", "value")
 ```
-
-### 5) URL Helpers
-- Html.ActionLink()
-- Url.Action()
-
-### 6) HttpUtility Helpers
-- HttpUtility.HtmlEncode() 
-- HttpUtility.HtmlDecode()
-- HttpUtility.UrlEncode() 
-- HttpUtility.UrlDecode()
-- Html.Raw()
