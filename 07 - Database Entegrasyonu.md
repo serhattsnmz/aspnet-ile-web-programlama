@@ -97,6 +97,8 @@ namespace Project.Models.DAL
     - `"SERVER=<server_adı> ; DATABASE=<db_adı> ; UID=<kullanıcı_adı> ; PWD=<parola>"`
     - Buradaki bilgiler MSSQL kurulurken oluşturulan bilgilerdir.
     - Database girişinde windows auth ile giriş sağlanıyorsa, UID ve PWD yerine `Integrated Security=true` yazılarak giriş yapılabilir.
+- Local DB bağlantı string'i:
+    - `Server=(localdb)\\mssqllocaldb;Database=<db_adı>;Trusted_Connection=True`
 - Bu bağlantı kısmını, context sınıfımız içinde oluşturduğumuz constructor metot içinde tanımlıyoruz.
 - Alternatif yol olarak, `Web.Config` içinde de bu tanımlama yapılabilir.
 
