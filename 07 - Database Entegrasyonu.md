@@ -99,6 +99,9 @@ namespace Project.Models.DAL
     - Database girişinde windows auth ile giriş sağlanıyorsa, UID ve PWD yerine `Integrated Security=true` yazılarak giriş yapılabilir.
 - Local DB bağlantı string'i:
     - `Server=(localdb)\\mssqllocaldb;Database=<db_adı>;Trusted_Connection=True`
+    - Lokal DB, `SQL Server Express Database Engine` yapısının sadeleştirilmiş halidir ve programlama anında hızlı bir şekilde kullanmayı amaçlar.
+    - Default olarak `C:/Users/<user>` altında bir `*.mdf` dosyası oluşturur ve burayı kullanır.
+    - `SQL Server Object Explorer` ile görüntülenebilir.
 - Bu bağlantı kısmını, context sınıfımız içinde oluşturduğumuz constructor metot içinde tanımlıyoruz.
 - Alternatif yol olarak, `Web.Config` içinde de bu tanımlama yapılabilir.
 
