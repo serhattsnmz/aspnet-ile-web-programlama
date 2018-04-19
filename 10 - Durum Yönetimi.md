@@ -41,6 +41,7 @@
     - HttpContext.Application.RemoveAll()
     - Null değere çekme
 - Null kontrolü
+- **NOT:** Bu yöntem, veriyi statik bir değişken üzerinde saklamaya benzer. ApplicationState ile yaptığımızı, statik bir değişken tanımlayarak da yapabiliriz.
 
 ### 03 – Cache Kullanımı
 
@@ -100,6 +101,10 @@ private void CacheCallback(string key, object value, CacheItemRemovedReason reas
 - Kullanıcıya tanımlıdır.
 - Cookie obje değil string bir değişken tutar. 
 - Tarayıcı kapandığında silinmez. Belirli bir ömür belirtilmesi lazım.
+- Her request ve response üzerinde taşınır.
+    - Bu taşınmanın performansının düşmemesi için cookie boyutunu minimum tutmak önemlidir.
+    - Genellikle kullanıcıya özel bilgiler server üzerinde barındırılıp, bunu tanımlayan unique bir değer cookie ile kullanıcıya gönderilir.
+- Çoğu browser, cookie boyutunu 4096 byte olarak sınırlandırmıştır.
 - Ekleme için kullanıcıya yanıt ( response ) gönderilir. Okuma için kullanıcıya istek ( request ) gönderilir.
 - Oluşturma : 
     - HttpCookie cookie = new HttpCookie ( string key, string value )
