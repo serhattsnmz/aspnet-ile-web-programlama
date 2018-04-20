@@ -45,6 +45,7 @@
 
 ### 03 – Cache Kullanımı
 
+- Caching mekanizması, herhangi bir veriyi cevap olarak daha hızlı döndürmek için, bu veriyi RAM üzerinde saklama ve gerektiğinde geri döndürme işlemidir.
 - Globaldir. Her kullanıcı aynı bilgileri görür.
 - ApplicationState’ten farkı, burada süre belirtebiliyoruz.
 - İsteğimiz dışımızda, server alan açmaya zorlandığında yine bu cache’ler silinebilir.
