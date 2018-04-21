@@ -17,10 +17,6 @@
         - Bilgileri, okunana kadar saklar.
         - Okuma yapıldıktan sonra `silinecek` olarak işaretlenip, **request sonunda** silinir.
         - `Silinecek` olarak işaretlenmesini engellemek için `Peek(<key>)`, işaretlendikten sonra işaretini kaldırmak için `Keep(<key>)` metotları kullanılabilir.
-        - Saklanması: 
-            - `CookieTempDataProvider` nesnesi yaratılır.
-            - Bu nesne `Base64UrlTextEncoder` ile encode edilir.
-            - Encode edilen nesne default olarak `Cookie`'de saklanır.
 
 ```cs
 //second request, PEEK value so it is not deleted at the end of the request
