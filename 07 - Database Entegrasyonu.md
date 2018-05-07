@@ -182,3 +182,37 @@ Update-Database -Force
 
 Enable-Migrations -EnableAutomaticMigrations
 ```
+
+### 06 - Auto Migration with Code
+
+- Migration işlemlerini `NPM Console` haricinde, kod yapısı içinde de yapabiliriz.
+- Örneğin program her başladığında database değişiklikleri varsa bunların migrate edilmesi için `Global.asax` içine kodlarımızı yerleştirebiliriz.
+- Bunu yapmak için, öncelikle migration ayarlarını class dosyası olarak oluşturmamız gerekir.
+
+```cs
+internal sealed class Configuration : DbMigrationsConfiguration<ProjectContext>
+{
+    public Configuration()
+    {
+        AutomaticMigrationsEnabled = true;
+        AutomaticMigrationDataLossAllowed = true;
+    }
+
+    protected override void Seed(ProjectContext context) { }
+}
+```
+
+- Bu ayarları `ProjectContext` dosyasımızın içine ekleyebileceğimiz gibi, `Enable-Migration` komutunu çalıştırdığımızda da otomatik olarak oluşur.
+- Bu yapıdaki : 
+    - `AutomaticMigrationsEnabled` : Migration işlemlerini otomatik yapar.
+    - `AutomaticMigrationDataLossAllowed` : Eğer db tabloları üzerinde bir sütun silincekse, yani veri kaybı olacaksa normalde hata verir. Bu kısmı `true` değerine çekerek, hata vermeden işlem yapmasını sağlayabiliriz.
+    - `Seed` : Başlangıçta database içinde oluşturmak istediğimiz kısımları burada belirtebiliriz.
+- Bu ayarları bitirdikten sonra, aşağıdaki kodlar database güncellemesi yapacaktır.
+
+```cs
+using (var context = new ProjectContext())
+{
+    Database.SetInitializer(new MigrateDatabaseToLatestVersion<ProjectContext, Configuration>());
+    context.Database.Initialize(true);
+}
+```
