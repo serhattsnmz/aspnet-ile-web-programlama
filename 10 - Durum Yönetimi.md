@@ -21,7 +21,7 @@
     - Session’ı null değere çekme
 - Session süresi ayarlama
     - Web.config dosyasında <system.web> altına
-        - <sessionState timeout=”30”></sessionState>
+        - `<sessionState timeout=”30”></sessionState>`
         - Dk olarak session süresini ayarlama
     - Hosting firmalarının session süresine müdahale etmesi ve manuel düzenlemeye izin vermemesi durumlarına dikkat edilmesi lazım.
     - Session verileri belli aralıklarla çağırılarak session canlı tutulabilir.
