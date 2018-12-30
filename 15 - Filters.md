@@ -15,6 +15,10 @@
     - Bunun için filter classımızı FilterAttribute adlı clastan türetmemiz gerek.
 - Attribute’leri her action için ayrı ayrı kullanabileceğimiz gibi, controller’ın başına yazarak, o controller’ın kapsadığı tüm actionlar için tek seferde kullanabiliriz.
 
+<p align="center">
+    <img src="assets/08.png" style="max-width:70%" />
+</p>
+
 ### 01 – Action Filter
 
 - Action çalıştırılmadan önceki ve sonraki anları yakalamaya yarar.
